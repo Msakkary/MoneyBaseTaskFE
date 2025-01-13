@@ -1,4 +1,4 @@
-<div class="stock-card">
+<div class="stock-card"  [ngClass]="isEnabled ? backgroundClass : 'gray'">
   <h2 class="stock-name">
     {{ stock.name }}
   </h2>
@@ -17,6 +17,5 @@
   <p class="stock-metric">
     <span>52 Week low Price</span> ${{ stock.weekLow52 }}
   </p>
-  <app-toggle-switch [isOn]="true" (toggleState)="onToggle($event)"></app-toggle-switch>
-
+  <app-toggle-switch [isOn]="isEnabled" (toggleState)="onToggle($event)"></app-toggle-switch>
 </div>
