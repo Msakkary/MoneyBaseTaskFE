@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: var(--primary-color); /* Blue background */
+  background-color: #333; /* Blue background */
   color: white;
 }
 
@@ -14,11 +14,12 @@
 .nav {
   display: flex;
   gap: 15px;
+  margin-left: auto;
 }
 
 .nav button {
   background-color: white;
-  color: var(--primary-color);
+  color: #333;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -33,6 +34,10 @@
 }
 
 .clock {
-  font-size: 16px;
+  flex: 1; /* Take up remaining space to center the clock */
+  text-align: center; /* Center text horizontally */
+  font-size: 18px;
   font-weight: bold;
+  color: white;
+  margin-left: 40px;
 }

@@ -1,6 +1,7 @@
 [
   {
-    "name": "Apple Inc.",
+    "symbol": "AAPL",
+    "name": "Apple Inc",
     "currentPrice": 150.12,
     "dailyHigh": 152.34,
     "dailyLow": 148.90,
@@ -8,6 +9,7 @@
     "weekLow52": 120.50
   },
   {
+    "symbol": "GOOGL",
     "name": "Alphapet",
     "currentPrice": 2800.23,
     "dailyHigh": 2820.00,
@@ -16,6 +18,7 @@
     "weekLow52": 2500.12
   },
   {
+    "symbol": "MSFT",
     "name": "Microsoft",
     "currentPrice": 250.34,
     "dailyHigh": 255.00,
@@ -24,6 +27,7 @@
     "weekLow52": 210.12
   },
   {
+    "symbol": "TSLA",
     "name": "Tesla",
     "currentPrice": 250.34,
     "dailyHigh": 255.00,

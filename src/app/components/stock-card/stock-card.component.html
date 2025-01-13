@@ -1,6 +1,6 @@
 <div class="stock-card"  [ngClass]="isEnabled ? backgroundClass : 'gray'">
   <h2 class="stock-name">
-    {{ stock.name }}
+    {{ stock.symbol }} <small>{{stock.name}}</small>
   </h2>
   <p class="stock-price">
     ${{ stock.currentPrice }}
