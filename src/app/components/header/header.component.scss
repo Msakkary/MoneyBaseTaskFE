@@ -3,18 +3,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #333; /* Blue background */
+  background-color: #333; /* Dark background */
   color: white;
 }
 
 .logo {
   height: 40px;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .nav {
   display: flex;
   gap: 15px;
-  margin-left: auto;
+  margin-left: auto; /* Push navigation to the right */
 }
 
 .nav button {
@@ -29,15 +30,60 @@
 }
 
 .nav button:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color, #f1c40f); /* Fallback color if variable is missing */
   color: white;
 }
 
 .clock {
-  flex: 1; /* Take up remaining space to center the clock */
-  text-align: center; /* Center text horizontally */
+  flex: 1; /* Allow clock to take remaining space */
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: white;
-  margin-left: 40px;
+  margin-left: 40px; /* Center the clock better */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Add spacing when stacked */
+  }
+
+  .clock {
+    order: 1; /* Place the clock first in the layout */
+    font-size: 16px; /* Slightly smaller font size */
+    margin-right: 5;
+    text-align: right;
+    margin-right: 5px;
+  }
+
+  .nav {
+    order: 2; /* Place the nav after the clock */
+    width: 100%; /* Full width for navigation */
+    justify-content: center; /* Center buttons on smaller screens */
+    gap: 10px; /* Reduce gap */
+  }
+
+  .nav button {
+    flex: 1; /* Make buttons stretch evenly */
+    padding: 8px 10px; /* Adjust padding */
+    font-size: 12px; /* Slightly smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .clock {
+    font-size: 14px; /* Smaller font size for very small screens */
+    margin: 5px 0;
+  }
+
+  .nav button {
+    font-size: 10px; /* Further reduce font size */
+    padding: 6px 8px; /* Compact buttons */
+  }
 }

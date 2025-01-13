@@ -1,11 +1,17 @@
+.stock-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamic columns */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+/* Stock Card Styles */
 .stock-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
   padding: 20px;
-  margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -26,25 +32,29 @@
   &.gray {
     background-color: #a29f9f;
   }
+
+  &:hover {
+    transform: scale(1.02); /* Subtle hover effect */
+  }
 }
 
+/* Responsive Font Sizes for Card Content */
 .stock-name {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 
   small {
     font-weight: 500;
     font-size: 1rem;
-    text-align: center;
     display: block;
   }
 }
 
 .stock-price {
   font-size: 1.8rem;
-  margin: 10px 0 15px 0;
+  margin: 10px 0;
 }
 
 .stock-metric {
@@ -56,5 +66,65 @@
     display: block;
     font-weight: 600;
     margin-bottom: 5px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .stock-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller columns on tablets */
+    gap: 15px;
+  }
+
+  .stock-metric.hidden-mobile {
+    display: none; /* Hide on mobile screens */
+  }
+
+  .stock-card {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .stock-name {
+    font-size: 1.5rem;
+  }
+
+  .stock-price {
+    font-size: 1.4rem;
+  }
+
+  .stock-metric {
+    font-size: 1.1rem;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .stock-container {
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    gap: 10px; /* Reduce gap for tighter spacing */
+  }
+
+  .stock-card {
+    width: 100%; /* Full-width cards */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .stock-name {
+    font-size: 1.4rem;
+  }
+
+  .stock-price {
+    font-size: 1.2rem;
+  }
+
+  .stock-metric {
+    font-size: 1rem;
+
+    span {
+      font-size: 0.9rem;
+    }
   }
 }

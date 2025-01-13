@@ -3,19 +3,19 @@
     {{ stock.symbol }} <small>{{stock.name}}</small>
   </h2>
   <p class="stock-price">
-    ${{ stock.currentPrice }}
+    {{ stock.currentPrice | currency:'USD':'symbol':'1.2-2' }}
   </p>
   <p class="stock-metric">
-    <span>Daily High Price</span> ${{ stock.dailyHigh }}
+    <span>Daily High Price</span> {{ stock.dailyHigh | currency:'USD':'symbol':'1.2-2'  }}
   </p>
   <p class="stock-metric">
-    <span>Daily Low Price</span> ${{ stock.dailyLow }}
+    <span>Daily Low Price</span> {{ stock.dailyLow | currency:'USD':'symbol':'1.2-2' }}
   </p>
-  <p class="stock-metric">
-    <span>52 Week High Price</span> ${{ stock.weekHigh52 }}
+  <p class="stock-metric hidden-mobile">
+    <span>52 Week High Price</span> {{ stock.weekHigh52 | currency:'USD':'symbol':'1.2-2' }}
   </p>
-  <p class="stock-metric">
-    <span>52 Week low Price</span> ${{ stock.weekLow52 }}
+  <p class="stock-metric hidden-mobile">
+    <span>52 Week low Price</span> {{ stock.weekLow52 | currency:'USD':'symbol':'1.2-2' }}
   </p>
   <app-toggle-switch [isOn]="isEnabled" (toggleState)="onToggle($event)"></app-toggle-switch>
 </div>

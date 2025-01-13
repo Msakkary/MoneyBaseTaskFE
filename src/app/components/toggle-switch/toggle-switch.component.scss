@@ -42,7 +42,7 @@
   opacity: 0; /* Dimmed when OFF */
   transition: opacity 0.3s ease;
   position: relative;
-    left: 28px;
+    left: 20px;
 }
 
 /* OFF label styling */
@@ -50,7 +50,7 @@
   opacity: 0; /* Dimmed when ON */
   transition: opacity 0.3s ease;
   position: relative;
-  right: 20px;
+  right: 10px;
 }
 
 /* Highlight active label */

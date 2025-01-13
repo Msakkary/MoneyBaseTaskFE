@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  min-height: 100vh; /* Ensure it covers the full viewport */
+  background-image: url('/assets/images/finance-bg.jpg');
+  background-size: cover; /* Make the background image cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Keeps the background in place while scrolling */
+}
