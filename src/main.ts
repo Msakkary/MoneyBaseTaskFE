@@ -1,6 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter, Routes } from '@angular/router';
 import { AppComponent } from './app/app.component';
+import { MockDataPageComponent } from './app/pages/mock-data-page/mock-data-page.component';
+import { RealTimeDataPageComponent } from './app/pages/real-time-data-page/real-time-data-page.component';
+import { provideHttpClient } from '@angular/common/http';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes: Routes = [
+  { path: '', redirectTo: '/mock-data', pathMatch: 'full' },
+  { path: 'mock-data', component: MockDataPageComponent },
+  { path: 'real-time', component: RealTimeDataPageComponent },
+];
+
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes),provideHttpClient()],
+}).catch((err) => console.error(err));

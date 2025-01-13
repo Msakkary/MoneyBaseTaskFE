@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Replace with your preferred font */
+  background-color: #f8f9fa; /* Global background color */
+  color: #333; /* Global text color */
+}
+
+/* Define reusable color variables (only for SCSS) */
+:root {
+  --primary-color: #01aff1;
+  --secondary-color: #0b93ce;
+  --text-color: #333;
+  --background-color: #f8f9fa;
+}
+/* Global layout styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button.primary:hover {
+  background-color: #0056b3;
+}
+
+button.secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+button.secondary:hover {
+  background-color: #5a6268;
+}
