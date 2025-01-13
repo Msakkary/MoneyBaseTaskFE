@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif; /* Replace with your preferred font */
+  font-family: 'Sans',Arial, sans-serif; /* Replace with your preferred font */
   background-color: #f8f9fa; /* Global background color */
   color: #333; /* Global text color */
 }
@@ -58,4 +58,16 @@ button.secondary {
 
 button.secondary:hover {
   background-color: #5a6268;
+}
+
+/* Fonts */
+@import url(https://db.onlinewebfonts.com/c/952bab25f6798d6bb1937d67e9bee4dd?family=Sans);
+@font-face {
+  font-family: "Sans";
+  src: url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.eot");
+  src: url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.svg#Sans")format("svg");
 }

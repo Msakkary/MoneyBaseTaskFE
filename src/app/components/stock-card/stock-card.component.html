@@ -1,8 +1,22 @@
 <div class="stock-card">
-  <h2>{{ stock.name }}</h2>
-  <p>Current Price: ${{ stock.currentPrice }}</p>
-  <p>Daily High: ${{ stock.dailyHigh }}</p>
-  <p>Daily Low: ${{ stock.dailyLow }}</p>
-  <p>52-Week High: ${{ stock.weekHigh52 }}</p>
-  <p>52-Week Low: ${{ stock.weekLow52 }}</p>
+  <h2 class="stock-name">
+    {{ stock.name }}
+  </h2>
+  <p class="stock-price">
+    ${{ stock.currentPrice }}
+  </p>
+  <p class="stock-metric">
+    <span>Daily High Price</span> ${{ stock.dailyHigh }}
+  </p>
+  <p class="stock-metric">
+    <span>Daily Low Price</span> ${{ stock.dailyLow }}
+  </p>
+  <p class="stock-metric">
+    <span>52 Week High Price</span> ${{ stock.weekHigh52 }}
+  </p>
+  <p class="stock-metric">
+    <span>52 Week low Price</span> ${{ stock.weekLow52 }}
+  </p>
+  <app-toggle-switch [isOn]="true" (toggleState)="onToggle($event)"></app-toggle-switch>
+
 </div>

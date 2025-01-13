@@ -1,17 +1,43 @@
 .stock-card {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+  padding:  20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.2s ease;
+  background-color: #ECF0F1;
+  color:#33485F;
+  font-weight: 500;
 }
 
-.green {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+.stock-card:hover {
+ }
+
+.stock-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-.red {
-  background-color: #ffebee;
-  color: #c62828;
+.stock-price {
+  font-size: 1.8rem;
+  margin: 10px 0 15px 0;
+}
+
+.stock-metric {
+  font-size: 1.3rem;
+  margin: 5px 0;
+  font-weight: 300;
+  span{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
 }

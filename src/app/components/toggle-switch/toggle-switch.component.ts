@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toggle-switch',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './toggle-switch.component.scss'
 })
 export class ToggleSwitchComponent {
+  @Input() isOn: boolean = true; // Initial state
+  @Output() toggleState = new EventEmitter<boolean>(); // Emit state change
 
+  toggle(): void {
+    this.isOn = !this.isOn;
+    this.toggleState.emit(this.isOn);  // Emit the updated state
+  }
 }

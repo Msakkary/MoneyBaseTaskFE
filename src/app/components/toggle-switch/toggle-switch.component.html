@@ -1,1 +1,7 @@
-<p>toggle-switch works!</p>
+<div class="toggle" [class.on]="isOn" (click)="toggle()">
+  <div class="toggle-inner">
+    <span class="on-label">ON</span>
+    <span class="off-label">OFF</span>
+  </div>
+  <div class="slider"></div>
+</div>

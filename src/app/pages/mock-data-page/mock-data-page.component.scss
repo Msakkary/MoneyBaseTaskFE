@@ -1,0 +1,7 @@
+.stock-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 4 cards per row */
+  gap: 30px; /* Space between cards */
+  }
+
+h1{text-align: center;}
