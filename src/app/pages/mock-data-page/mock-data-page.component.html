@@ -1,10 +1,5 @@
 <h1>Mocked Data</h1>
 <div class="stock-container">
-  <app-stock-card
-    *ngFor="let stock of stocks; let i = index"
-    [stock]="stock"
-    [backgroundClass]="statuses[i]"
-    [isEnabled]="enabledStates[i]"
-    (toggle)="toggleStock(i, $event)"
-  ></app-stock-card>
+  <app-stock-card *ngFor="let stock of stocks; let i = index" [stock]="stock" [backgroundClass]="statuses[i]"
+    [isEnabled]="enabledStates[i]" (toggle)="toggleStock(i, $event)"></app-stock-card>
 </div>

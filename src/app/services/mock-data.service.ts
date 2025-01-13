@@ -8,13 +8,14 @@ import { Stock } from '../models/stock.model';
 })
 export class MockDataService {
   private mockDataUrl = 'assets/mocks/stocks.json';
+
   private stocks: { stock: Stock; previousPrice: number }[] = []; // Track stocks with previous prices
   private stockSubject = new BehaviorSubject<Stock[]>([]); // Subject for observable updates
   private enabledStates: boolean[] = [];
 
   constructor(private http: HttpClient) {
     this.fetchMockData();
-    interval(5000).subscribe(() => this.updateStockPrices()); // Update every 5 seconds
+    interval(8000).subscribe(() => this.updateStockPrices()); // Update every 5 seconds
   }
 
   // Fetch initial data
@@ -30,16 +31,6 @@ export class MockDataService {
       // Emit the initial stock data
       this.stockSubject.next(this.stocks.map((s) => s.stock));
     });
-  }
-
-  // Update the enabled states from the parent component
-  setEnabledStates(enabledStates: boolean[]): void {
-    this.enabledStates = enabledStates;
-  }
-
-  // Return an observable for stock data
-  getMockData(): Observable<Stock[]> {
-    return this.stockSubject.asObservable();
   }
 
   // Update prices and track previous prices
@@ -68,13 +59,23 @@ export class MockDataService {
     return parseFloat((value + randomChange).toFixed(2)); // Limit to 2 decimals
   }
 
+  // Return an observable for stock data
+  getMockData(): Observable<Stock[]> {
+    return this.stockSubject.asObservable();
+  }
+
+  // Update the enabled states from the view component
+  setEnabledStates(enabledStates: boolean[]): void {
+    this.enabledStates = enabledStates;
+  }
+
   // Get the previous price for a specific stock by index
   getPreviousPrice(index: number): number {
     return this.stocks[index]?.previousPrice || 0;
   }
 
-  // Fetch the latest stock data for a specific index
+  // Fetch the latest stock data for a specific index in case of long "OFF"
   getLatestStockData(index: number): Stock {
-    return this.stocks[index].stock; // Return the latest stock object
+    return this.stocks[index].stock;
   }
 }

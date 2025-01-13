@@ -6,62 +6,72 @@ import { MockDataService } from '../../services/mock-data.service';
 
 @Component({
   selector: 'app-mock-data-page',
+  standalone: true,
   imports: [StockCardComponent, CommonModule],
   templateUrl: './mock-data-page.component.html',
-  styleUrl: './mock-data-page.component.scss'
+  styleUrls: ['./mock-data-page.component.scss'],
 })
-export class MockDataPageComponent {
+export class MockDataPageComponent implements OnInit {
   stocks: Stock[] = [];
   statuses: string[] = [];
   enabledStates: boolean[] = [];
 
   constructor(private mockDataService: MockDataService) {}
+
   ngOnInit(): void {
+    this.initializeStocks();
+  }
+
+  private initializeStocks(): void {
     this.mockDataService.getMockData().subscribe((data) => {
-      if (this.stocks.length === 0) {
-        // Initialize stocks and enable all by default
-        this.stocks = data;
-        this.enabledStates = data.map(() => true); // All enabled initially
-        this.mockDataService.setEnabledStates(this.enabledStates);
-
-        // Set initial statuses to green for all stocks
-        this.statuses = data.map(() => 'green');
+      if (!this.stocks.length) {
+        this.setupInitialState(data);
       } else {
-        // Only update enabled stocks
-        this.stocks.forEach((stock, index) => {
-          if (this.enabledStates[index]) {
-            Object.assign(stock, data[index]); // Update stock data
-          }
-        });
+        this.updateEnabledStocks(data);
       }
-
-      // Update statuses for cards
-      this.statuses = this.stocks.map((stock, index) => {
-        if (!this.enabledStates[index]) {
-          return 'gray'; // Disabled cards are gray
-        }
-        const previousPrice = this.mockDataService.getPreviousPrice(index);
-        return stock.currentPrice >= previousPrice ? 'green' : 'red'; // Compare for green/red
-      });
+      this.updateStatuses();
     });
   }
 
-  // Handle toggle action from the child component
+  private setupInitialState(data: Stock[]): void {
+    this.stocks = [...data];
+    this.enabledStates = data.map(() => true); // All enabled initially
+    this.mockDataService.setEnabledStates(this.enabledStates);
+    this.statuses = this.stocks.map(() => 'green'); // All start as green
+  }
+
+  private updateEnabledStocks(data: Stock[]): void {
+    this.stocks.forEach((stock, index) => {
+      if (this.enabledStates[index]) {
+        Object.assign(stock, data[index]);
+      }
+    });
+  }
+
+  private updateStatuses(): void {
+    this.statuses = this.stocks.map((stock, index) => {
+      if (!this.enabledStates[index]) return 'gray'; // Disabled cards are gray
+      const previousPrice = this.mockDataService.getPreviousPrice(index);
+      return stock.currentPrice >= previousPrice ? 'green' : 'red';
+    });
+  }
+
   toggleStock(index: number, isOn: boolean): void {
-    this.enabledStates[index] = isOn; // Update the enabled state
-    console.log(`Stock ${this.stocks[index].name} is now ${isOn ? 'enabled' : 'disabled'}`);
+    this.enabledStates[index] = isOn;
+    this.mockDataService.setEnabledStates(this.enabledStates);
 
     if (isOn) {
-      // If toggled back ON, immediately reapply the latest stock data
-      const latestData = this.mockDataService.getLatestStockData(index);
-      Object.assign(this.stocks[index], latestData);
-
-      // Recalculate the status immediately
-      const previousPrice = this.mockDataService.getPreviousPrice(index);
-      this.statuses[index] = this.stocks[index].currentPrice > previousPrice ? 'green' : 'red';
+      this.handleToggleOn(index);
     } else {
-      // If toggled OFF, set the status to gray
       this.statuses[index] = 'gray';
     }
+  }
+
+  private handleToggleOn(index: number): void {
+    const latestData = this.mockDataService.getLatestStockData(index);
+    Object.assign(this.stocks[index], latestData);
+
+    const previousPrice = this.mockDataService.getPreviousPrice(index);
+    this.statuses[index] = this.stocks[index].currentPrice >= previousPrice ? 'green' : 'red';
   }
 }
