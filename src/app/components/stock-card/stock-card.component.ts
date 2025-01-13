@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Stock } from '../../models/stock.mode';
+import { Stock } from '../../models/stock.model';
 import { ToggleSwitchComponent } from "../toggle-switch/toggle-switch.component";
 
 @Component({

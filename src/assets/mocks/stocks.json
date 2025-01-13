@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Apple Inc.",
+    "currentPrice": 150.12,
+    "dailyHigh": 152.34,
+    "dailyLow": 148.90,
+    "weekHigh52": 180.25,
+    "weekLow52": 120.50
+  },
+  {
+    "name": "Alphapet",
+    "currentPrice": 2800.23,
+    "dailyHigh": 2820.00,
+    "dailyLow": 2750.50,
+    "weekHigh52": 3000.45,
+    "weekLow52": 2500.12
+  },
+  {
+    "name": "Microsoft",
+    "currentPrice": 250.34,
+    "dailyHigh": 255.00,
+    "dailyLow": 245.67,
+    "weekHigh52": 290.34,
+    "weekLow52": 210.12
+  },
+  {
+    "name": "Tesla",
+    "currentPrice": 250.34,
+    "dailyHigh": 255.00,
+    "dailyLow": 245.67,
+    "weekHigh52": 290.34,
+    "weekLow52": 210.12
+  }
+]

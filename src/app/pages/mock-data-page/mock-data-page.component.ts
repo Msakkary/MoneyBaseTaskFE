@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockCardComponent } from '../../components/stock-card/stock-card.component';
-import { Stock } from '../../models/stock.mode';
+import { Stock } from '../../models/stock.model';
 import { MockDataService } from '../../services/mock-data.service';
 
 @Component({
