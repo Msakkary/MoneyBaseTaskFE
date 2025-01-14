@@ -2,13 +2,23 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
-## Development server
+## About the Project
+
+MoneybaseTask is a stock tracking application that demonstrates two approaches for handling and visualizing stock data:
+
+1. **Mock Data**: This version uses mock data to simulate stock price changes at short intervals, providing a quick and dynamic way to observe how the application handles updates in a real-time-like environment.
+2. **Real-Time Data**: This version integrates with the [Finnhub API](https://finnhub.io/) to fetch and display real-time stock data. The real-time approach utilizes WebSockets for continuous updates, ensuring up-to-date information is displayed.
+
+The mock data version serves as a testing environment, while the real-time integration showcases the application's ability to handle live data. These two approaches provide flexibility for users to explore the application's behavior under different scenarios.
+
+---
+
+## Development Server
 
 To start a local development server, run:
 
 ```bash
 ng serve
-```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
@@ -44,15 +54,6 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
