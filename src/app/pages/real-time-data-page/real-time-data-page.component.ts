@@ -46,7 +46,7 @@ export class RealtimePageComponent implements OnInit, OnDestroy {
       });
       // Connect to WebSocket
       this.realtimeService.connectWebSocket(this.symbols);
-    }, 1000); // 1-second fake delay for loader
+    }, 1000);
   }
 
   toggleStock(index: number, isOn: boolean): void {

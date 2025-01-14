@@ -15,7 +15,7 @@ export class MockDataService {
 
   constructor(private http: HttpClient) {
     this.fetchMockData();
-    interval(8000).subscribe(() => this.updateStockPrices()); // Update every 5 seconds
+    interval(5000).subscribe(() => this.updateStockPrices()); // Update every 5 seconds
   }
 
   // Fetch initial data

@@ -6,7 +6,7 @@ import { RealtimePageComponent } from './app/pages/real-time-data-page/real-time
 import { provideHttpClient } from '@angular/common/http';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/mock-data', pathMatch: 'full' },
+  { path: '', redirectTo: '/real-time', pathMatch: 'full' },
   { path: 'mock-data', component: MockDataPageComponent },
   { path: 'real-time', component: RealtimePageComponent },
 ];

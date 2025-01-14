@@ -7,3 +7,9 @@
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-attachment: fixed; /* Keeps the background in place while scrolling */
 }
+
+@media (max-width: 768px) {
+  :host {
+    padding-bottom: 20px
+  }
+}

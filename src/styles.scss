@@ -1,24 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-  margin: 0;
-  font-family: 'Sans',Arial, sans-serif; /* Replace with your preferred font */
-  background-color: #f8f9fa; /* Global background color */
-  color: #333; /* Global text color */
-}
+/* Global Reset and Box-Sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Define reusable color variables (only for SCSS) */
+/* Global Variables */
 :root {
   --primary-color: #01aff1;
   --secondary-color: #0b93ce;
   --text-color: #333;
   --background-color: #f8f9fa;
+  --button-hover-primary: #0056b3;
+  --button-hover-secondary: #5a6268;
 }
-/* Global layout styles */
+
+/* Body Styles */
+body {
+  font-family: 'Sans', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* Layout Utilities */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -53,7 +60,7 @@ button.primary {
 }
 
 button.primary:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-primary);
 }
 
 button.secondary {
@@ -62,18 +69,19 @@ button.secondary {
 }
 
 button.secondary:hover {
-  background-color: #5a6268;
+  background-color: var(--button-hover-secondary);
 }
 
-/* Fonts */
-@import url(https://db.onlinewebfonts.com/c/952bab25f6798d6bb1937d67e9bee4dd?family=Sans);
+/* Typography */
+@import url("https://db.onlinewebfonts.com/c/952bab25f6798d6bb1937d67e9bee4dd?family=Sans");
+
 @font-face {
   font-family: "Sans";
   src: url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.eot");
-  src: url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.svg#Sans")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/952bab25f6798d6bb1937d67e9bee4dd.svg#Sans") format("svg");
 }
-
