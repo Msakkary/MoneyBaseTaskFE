@@ -41,11 +41,9 @@ export class RealtimePageComponent implements OnInit, OnDestroy {
             }
           });
         }
-
         // Update statuses
         this.updateStatuses();
       });
-
       // Connect to WebSocket
       this.realtimeService.connectWebSocket(this.symbols);
     }, 1000); // 1-second fake delay for loader

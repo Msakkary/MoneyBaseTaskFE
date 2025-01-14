@@ -1,5 +1,5 @@
 export interface Stock {
-  symbol: string;
+  symbol: string;            // Stock Symbol
   name: string;              // Name of the stock
   currentPrice: number;      // Current price of the stock
   dailyHigh: number;         // Daily high price

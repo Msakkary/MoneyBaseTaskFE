@@ -11,6 +11,7 @@ import { MockDataService } from '../../services/mock-data.service';
   templateUrl: './mock-data-page.component.html',
   styleUrls: ['./mock-data-page.component.scss'],
 })
+
 export class MockDataPageComponent implements OnInit {
   stocks: Stock[] = [];
   statuses: string[] = [];
@@ -70,7 +71,6 @@ export class MockDataPageComponent implements OnInit {
   private handleToggleOn(index: number): void {
     const latestData = this.mockDataService.getLatestStockData(index);
     Object.assign(this.stocks[index], latestData);
-
     const previousPrice = this.mockDataService.getPreviousPrice(index);
     this.statuses[index] = this.stocks[index].currentPrice >= previousPrice ? 'green' : 'red';
   }

@@ -9,11 +9,9 @@ export class RealtimeDataService {
   private apiKey = 'cu2h2vpr01qh0l7ha2sgcu2h2vpr01qh0l7ha2t0';
   private apiUrl = 'https://finnhub.io/api/v1';
   private wsUrl = `wss://ws.finnhub.io?token=${this.apiKey}`;
-
   private stocks: { [symbol: string]: any } = {};
   private stockSubject = new BehaviorSubject<{ [symbol: string]: any }>({});
   private socket!: WebSocket;
-
   private enabledStates: { [symbol: string]: boolean } = {}; // Track enabled/disabled states
 
   constructor(private http: HttpClient) {}
